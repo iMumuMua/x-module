@@ -1,0 +1,25 @@
+{
+  "name": "x-module",
+  "description": "Modularization programming for JavaScript.",
+  "main": "lib/x-module.js",
+  "version": "0.0.1",
+  "author": "iMumuMua <imumu@foxmail.com>",
+  "keywords": [
+    "module"
+  ],
+  "repository": "iMumuMua/x-module",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~2.2.1",
+    "should": "~5.2.0",
+    "istanbul": "~0.3.8"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec --bail --check-leaks test/",
+    "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --reporter spec --check-leaks test/",
+    "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/"
+  }
+}
