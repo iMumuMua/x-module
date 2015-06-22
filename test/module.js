@@ -28,6 +28,9 @@ x.def('mix', ['sync', 'async'], function(sync, async) {
     async().should.equal('async');
     this.pub();
 });
+x.def('nest', ['syncMain', 'asyncMain'], function(sync, async) {
+    this.pub();
+});
 
 describe('sync module', function() {
     it('should work', function(done) {
@@ -48,6 +51,14 @@ describe('async module', function() {
 describe('mix module', function() {
     it('should work', function(done) {
         x.run('mix', function() {
+            done();
+        });
+    });
+});
+
+describe('nested module', function() {
+    it('should work', function(done) {
+        x.run('nest', function() {
             done();
         });
     });
