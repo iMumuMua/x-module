@@ -34,32 +34,32 @@ x.def('nest', ['syncMain', 'asyncMain'], function(sync, async) {
 
 describe('sync module', function() {
     it('should work', function(done) {
-        x.run('syncMain', function() {
+        x.run('syncMain').then(function() {
             done();
-        });
+        }, done);
     });
 });
 
 describe('async module', function() {
     it('should work', function(done) {
-        x.run('asyncMain', function() {
+        x.run('asyncMain').then(function() {
             done();
-        });
+        }, done);
     });
 });
 
 describe('mix module', function() {
     it('should work', function(done) {
-        x.run('mix', function() {
+        x.run('mix').then(function() {
             done();
-        });
+        }, done);
     });
 });
 
 describe('nested module', function() {
     it('should work', function(done) {
-        x.run('nest', function() {
+        x.run('nest').then(function() {
             done();
-        });
+        }, done);
     });
 });
