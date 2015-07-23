@@ -1,6 +1,8 @@
 # x-module
 `x-module` is a light weight library for JavaScript modularization programming. You could use it in both browser and node.js/io.js.
 
+[![Build Status](https://travis-ci.org/iMumuMua/x-module.svg?branch=master)](https://travis-ci.org/iMumuMua/x-module)
+
 ## Start
 ### In browser:
 First step, add `<script>` tag for `x-module.js` in your web page, such as `index.html`:
@@ -53,7 +55,7 @@ Define modules:
 
 module-a.js:
 ```js
-xModule = require('x-module');
+var xModule = require('x-module');
 xModule.def('moduleA', function() {
     return 'A';
 });
@@ -63,7 +65,7 @@ Run:
 
 main.js:
 ```js
-xModule = require('x-module');
+var xModule = require('x-module');
 require('./module-a.js');
 xModule.run('moduleA', function(A) {
     console.log(A); // 'A'
