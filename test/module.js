@@ -1,4 +1,5 @@
-var xModule = require('../lib/x-module');
+var xModule = require('../index.js');
+var path = require('path');
 
 xModule.def('moduleA', function() {
     return 'A'
@@ -35,6 +36,15 @@ describe('xModule', function() {
         it('should run', function() {
             xModule.run('moduleC', function(C) {
                 C.should.equal('ABA');
+            });
+        });
+    });
+
+    describe('load dir', function() {
+        it('should load all modules and run', function() {
+            xModule.loadDir(path.join(__dirname, 'mods'));
+            xModule.run('modA', function(A) {
+                A.should.equal('BC');
             });
         });
     });

@@ -1,7 +1,6 @@
 {
   "name": "x-module",
   "description": "Modularization programming for JavaScript.",
-  "main": "lib/x-module.js",
   "version": "0.0.1",
   "author": "iMumuMua <imumu@foxmail.com>",
   "keywords": [
@@ -12,7 +11,13 @@
   "devDependencies": {
     "mocha": "~2.2.1",
     "should": "~5.2.0",
-    "istanbul": "~0.3.8"
+    "istanbul": "~0.3.8",
+    "gulp": "~3.9.0",
+    "gulp-uglify": "~1.2.0",
+    "gulp-sourcemaps": "~1.5.2",
+    "gulp-clean": "~0.3.1",
+    "gulp-rename": "~1.2.2",
+    "gulp-load-plugins": "~1.0.0-rc.1"
   },
   "engines": {
     "node": ">= 0.10.0"

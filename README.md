@@ -51,29 +51,52 @@ xModule.run('moduleB', function(B) {
 
 ### In node.js or io.js:
 
-Define modules:
+Define modules in a dir:
+```
+.
+├── mods
+│   ├── mod-a.js
+│   └── sub
+│       ├── mod-b.js
+│       └── mod-c.js
+└── main.js
+```
 
-module-a.js:
+mod-a.js:
 ```js
-var xModule = require('x-module');
-xModule.def('moduleA', function() {
-    return 'A';
+xModule.def('modA', ['modB', 'modC'], function(B, C) {
+  return B + C;
 });
 ```
 
-Run:
+mod-b.js:
+```js
+xModule.def('modB', function() {
+  return 'B';
+});
+```
+
+mod-c.js:
+```js
+xModule.def('modC', function() {
+  return 'C';
+});
+```
+
+Load modules and run:
 
 main.js:
 ```js
 var xModule = require('x-module');
-require('./module-a.js');
-xModule.run('moduleA', function(A) {
-    console.log(A); // 'A'
+var path = require('path');
+xModule.load(path.join(__dirname, 'mods'));
+xModule.run('modA', function(A) {
+    console.log(A); // 'BC'
 });
 ```
 
 ## Why x-module?
-* **easy**: Just concat and uglify js files in browser, or require files in `node.js`/`io.js`. You don't need to care about the order of files.
+* **easy**: Just concat and uglify js files in browser, or require files in `node.js`/`io.js`. You don't need to care about the order or the path of files.
 * **consistency**: The browser client and server side in the same way to define the module.
 
 ## License
