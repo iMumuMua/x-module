@@ -1,7 +1,7 @@
 {
   "name": "x-module",
   "description": "Modularization programming for JavaScript.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "iMumuMua <imumu@foxmail.com>",
   "keywords": [
     "module"
